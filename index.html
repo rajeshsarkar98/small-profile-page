@@ -12,11 +12,11 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
-    <main class="h-screen w-full font-['Bakbak One']">
+    <main id="main-container" class="h-screen w-full font-['Bakbak One']">
         <!-- Main container -->
         <div class="flex flex-col items-center mx-auto px-6 py-10 h-full w-full">
             <!-- Header / Navigation -->
-            <header class="w-full py-3 px-6 flex items-center justify-between border-solid border-y-2 border-black">
+            <header id="navbar" class="w-full py-3 px-6 flex items-center justify-between border-solid border-y-2 border-black">
                 <h3 class="uppercase text-xl font-bold tracking-widest lg:px-10">Rajesh Sarkar</h3>
                 <nav id="nav-links" class="hidden sm:flex capitalize text-lg font-semibold tracking-wide">
                     <a href="https://rajeshsarkar98.github.io/small-profile-page/" class=" opacity-70 px-8 xl:px-10 lg:px-4 md:px-3 border-solid border-l-2 border-black hover:opacity-100">Home</a>
@@ -44,7 +44,7 @@
             </div>
 
             <!-- About Me Section -->
-            <section id="about-me" class="h-full w-full flex flex-col items-center justify-center">
+            <section id="about-me" class="h-full w-full py-6 flex flex-col items-center justify-center">
                 <img class="rounded-full h-28 w-28" src="https://img.freepik.com/premium-photo/memoji-happy-man-white-background-emoji_826801-6830.jpg?w=740" alt="Rajesh Sarkar">
                 <h3 class="mt-5 text-lg font-medium text-center hover:opacity-100 opacity-70">Hi, call me RK 🖐</h3>
                 <h4 class="mt-5 text-center font-bold text-3xl opacity-90 w-full">
@@ -59,20 +59,20 @@
             </section>
 
             <!-- Contact Form Section -->
-            <section id="contact-section" class="hidden h-full w-full items-center justify-center mt-16 px-6">
-                <h2 class="text-2xl font-semibold text-center mb-8">Contact Me</h2>
-                <h4 class="text-xs text-center opacity-80 mb-8">Feel free to contact me by submitting the form below, and I will get back to you as soon as possible.</h4>
-                <form action="https://formspree.io/f/mjkgbjbb" method="POST" class="max-w-lg mx-auto bg-gray-100 p-6 rounded-lg shadow-md">
+            <section id="contact-section" class="hidden h-screen flex flex-col items-center justify-center w-full max-w-3xl mx-auto px-6 my-8">
+                <h2 class="text-3xl font-bold text-center mb-8">Contact Me</h2>
+                <h4 class="text-md text-center opacity-80 mb-8">Feel free to contact me by submitting the form below, and I will get back to you as soon as possible.</h4>
+                <form action="https://formspree.io/f/mjkgbjbb" method="POST" class="w-full bg-gray-100 p-6 rounded-lg shadow-md flex flex-col gap-4">
                     <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <label for="name" class="block text-lg font-medium text-gray-700 mb-1">Name</label>
                         <input type="text" id="name" name="name" required placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:outline-none">
                     </div>
                     <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <label for="email" class="block text-lg font-medium text-gray-700 mb-1">Email</label>
                         <input type="email" id="email" name="email" required placeholder="Your Email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:outline-none">
                     </div>
                     <div class="mb-4">
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <label for="message" class="block text-lg font-medium text-gray-300 mb-1">Message</label>
                         <textarea id="message" name="message" required rows="5" placeholder="Your Message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:outline-none"></textarea>
                     </div>
                     <button type="submit" class="w-full py-2 px-4 bg-black text-white font-medium rounded-lg hover:bg-white hover:text-black border border-black transition">
@@ -82,7 +82,7 @@
             </section>
 
             <!-- Footer -->
-            <footer class="text-md font-medium opacity-80 w-full py-4 flex items-center justify-center border-solid border-y-2 border-black">
+            <footer id="footer" class="text-md font-medium opacity-80 w-full py-3 flex items-center justify-center border-solid border-y-2 border-black">
                 &copy; 2025 Rajesh Sarkar
             </footer>
         </div>
@@ -96,6 +96,9 @@
         const contactBtn = document.getElementById('contact-btn');
         const aboutMeSection = document.getElementById('about-me');
         const contactSection = document.getElementById('contact-section');
+        const navbar = document.getElementById('navbar');
+        const footer = document.getElementById('footer');
+        const mainContainer = document.getElementById('main-container');
 
         // Toggle sidebar
         menuIcon.addEventListener('click', () => {
@@ -110,6 +113,7 @@
         contactBtn.addEventListener('click', () => {
             aboutMeSection.classList.add('hidden');
             contactSection.classList.remove('hidden');
+            mainContainer.classList.remove('py-10');  // Remove padding from main container
         });
     </script>
 </body>
